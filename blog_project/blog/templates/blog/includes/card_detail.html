@@ -1,0 +1,16 @@
+<div class="card mb-3" style="display: flex; width: 100%;">
+    <h3 class="card-title">{{post.title}}</h3>
+    <a href="{{post.get_absolute_url}}" >
+        <img src="{{post.image.url}}" alt="" style="max-width: 100%; width: 800px; border-radius: 5px;"> 
+    </a>
+    <div class="card-body">
+        <p class="card-text">{{post.body}}</p>
+        <p class="card-text"><small class="text-muted">{{post.date_pub}}</small></p>
+        <p>
+            {% for tag in post.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{tag.title}}</a>
+            {% endfor %}
+        </p>
+    </div>
+</div>
+
